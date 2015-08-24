@@ -1,0 +1,20 @@
+{
+  "name": "Nike",
+  "username": "@Nike",
+  "photo": "https://pbs.twimg.com/profile_images/453344139950567425/lLpizBOt.jpeg",
+  "is_business": true
+}
+
+{
+  "name": "CocaCola",
+  "username": "@CocaColaCo",
+  "photo": "https://pbs.twimg.com/profile_images/520574178244571136/P6Tlcyhz.jpeg",
+  "is_business": true
+}
+
+{
+  "name": "Apple Music",
+  "username": "@AppleMusic",
+  "photo": "https://pbs.twimg.com/profile_images/607981595580964864/I8cxQsVz.jpg",
+  "is_business": true
+}

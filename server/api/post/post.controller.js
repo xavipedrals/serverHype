@@ -7,8 +7,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 // Get list of posts
 exports.index = function(req, res) {
-  console.log('Hola');
-  console.log(req.query.date);
   if (req.query.recent10 != undefined) {
     // db.getCollection('posts').find({}).sort({date:-1}).limit(10);
     // http://localhost:9000/api/posts?recent10=true
@@ -56,35 +54,38 @@ exports.show = function(req, res) {
 
 // Creates a new post in the DB.
 exports.create = function(req, res) {
-  var user_username = req.body.user_username;
+  var user_username = req.body.username;
 
-  User.find({"username": user_username}, function(err, user){
+  //Si no usas findOne no puedes acceder directamente a los parametros de user
+  User.findOne({"username": user_username}, function(err, user){
     if (err) { return handleError(res, err); }
-    if(!user) { return res.status(404).send('Not Found');}
-    var userId = new ObjectId(user._id);
-    var dataAct = new Date();
+    if(!user) { return res.status(404).send('Username Not Found');}
+    else {
+      var userId = new ObjectId(user._id);
+      var dataAct = new Date();
 
-    var aux = {
-      user_id: userId,
-      user_name: user.name,
-      user_username: user.username,
-      user_photo: user.photo,
-      user_type: user.type,
-      hashtag: req.body.hashtag,
-      date: dataAct,
-      description: req.body.description,
-      description_ext: req.body.description_ext,
-      photo: req.body.photo,
-      deadline: req.body.deadline,
-      location: req.body.location,
-      age: req.body.age,
-      bases: req.body.bases,
-      type: req.body.type
+      var aux = {
+        user_id: userId,
+        user_name: user.name,
+        user_username: user.username,
+        user_photo: user.photo,
+        user_is_business: user.is_business,
+        hashtag: req.body.hashtag,
+        date: dataAct,
+        description: req.body.description,
+        description_ext: req.body.description_ext,
+        photo: req.body.photo,
+        deadline: req.body.deadline,
+        location: req.body.location,
+        age: req.body.age,
+        bases: req.body.bases,
+        type: req.body.type
+      }
+      Post.create(aux, function(err, post) {
+        if(err) { return handleError(res, err); }
+        return res.status(201).json(post);
+      });
     }
-    Post.create(aux, function(err, post) {
-      if(err) { return handleError(res, err); }
-      return res.status(201).json(post);
-    });
   });
 };
 

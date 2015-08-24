@@ -1,0 +1,38 @@
+{
+    "username": "@Nike",
+    "hashtag": "#JustDoIt",
+    "description": "Hazte una foto corriendo con tus zapatillas Nike favoritas!",
+    "description_ext": "www",
+    "photo": "https://pbs.twimg.com/media/CJpVGXpWsAEY9Fe.jpg:large",
+    "deadline": "31/12/2015",
+    "location": "Barcelona",
+    "age": 3,
+    "bases": "www",
+    "type": "concurs"
+}
+
+{
+    "username": "@CocaColaCo",
+    "hashtag": "#CokeJourney",
+    "description": "Hazte una foto en el mejor sitio para beber CocaCola!",
+    "description_ext": "www",
+    "photo": "https://pbs.twimg.com/media/CM9NSePWsAEqfwN.jpg:large",
+    "deadline": "31/12/2015",
+    "location": "China",
+    "age": 3,
+    "bases": "www",
+    "type": "concurs"
+}
+
+{
+    "username": "@AppleMusic",
+    "hashtag": "#CokeJourney",
+    "description": "Hazte una foto en el mejor local para escuchar música Wild!",
+    "description_ext": "www",
+    "photo": "https://pbs.twimg.com/media/CNCnALBVAAA4vyb.jpg:large",
+    "deadline": "31/12/2015",
+    "location": "United Kingdom",
+    "age": 14,
+    "bases": "www",
+    "type": "logro"
+}
