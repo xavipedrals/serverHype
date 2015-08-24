@@ -7,7 +7,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 // Get list of posts
 exports.index = function(req, res) {
-  if (req.query.recent10 != undefined) {
+  if (req.query.recent10 !== undefined) {
     // db.getCollection('posts').find({}).sort({date:-1}).limit(10);
     // http://localhost:9000/api/posts?recent10=true
     Post.find(function(err, post){
@@ -16,14 +16,14 @@ exports.index = function(req, res) {
       return res.json(post);
     }).sort({"date": -1}).limit(10);
   }
-  else if (req.query.recent20 != undefined) {
+  else if (req.query.recent20 !== undefined) {
     Post.find(function(err, post){
       if(err) { return handleError(res, err); }
       if(!post) { return res.status(404).send('Not Found'); }
       return res.json(post);
     }).sort({"date": -1}).limit(20);
   }
-  else if (req.query.date != undefined){
+  else if (req.query.date !== undefined){
     //Si hay una fecha devuelve todos a partir de la fecha
     //Formato fecha 2015-08-23T20:21:35.241Z
     var data = new Date(req.query.date);
